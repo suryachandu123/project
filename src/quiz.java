@@ -5,17 +5,13 @@ public class quiz {
     static class Player {
         String name;
         int age;
-        String address;
-        int phonenumber;
         int amountWon = 0;
         boolean usedLifeline1 = false;
         boolean usedLifeline2 = false;
 
-        Player(String name, int age,String address,int phonenumber) {
+        Player(String name, int age) {
             this.name = name;
             this.age = age;
-            this.address=address;
-            this.phonenumber=phonenumber;
         }
     }
 
@@ -27,13 +23,9 @@ public class quiz {
         String name = sc.nextLine();
         System.out.println("Enter your age: ");
         int age = sc.nextInt();
-        System.out.println("Enter your address: ");
-        String address = sc.nextLine();
-        System.out.println("Enter your phonenumber: ");
-        int phonenumber =sc.nextInt();
         sc.nextLine(); // Consume the leftover newline
 
-        Player player = new Player(name, age, address, phonenumber);
+        Player player = new Player(name, age);
         System.out.println("Welcome, " + player.name + "!");
 
         // Ask if the player is ready
@@ -41,14 +33,14 @@ public class quiz {
         String ready = sc.nextLine();
         if (!ready.equalsIgnoreCase("yes")) {
             System.out.println("Game terminated. Thank you!");
-            return;
+            return; // Exit the program if the player is not ready
         }
 
         // Display rules
         System.out.println("\n--- Rules ---");
         System.out.println("1. Each question has 4 options, choose the correct one.");
         System.out.println("2. Two lifelines are available but can only be used once.");
-        System.out.println("3. Wrong answer ends the game with the amount won so far.\n");
+        System.out.println("3. A wrong answer ends the game with the amount won so far.\n");
 
         // Define the questions and answers
         String[] questions = {
@@ -136,3 +128,4 @@ public class quiz {
         System.out.println("\nCongratulations, " + player.name + "! You've completed the quiz and won ₹" + player.amountWon);
     }
 }
+
