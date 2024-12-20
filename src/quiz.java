@@ -5,13 +5,17 @@ public class quiz {
     static class Player {
         String name;
         int age;
+        String address;
+        int phonenumber;
         int amountWon = 0;
         boolean usedLifeline1 = false;
         boolean usedLifeline2 = false;
 
-        Player(String name, int age) {
+        Player(String name, int age,String address,int phonenumber) {
             this.name = name;
             this.age = age;
+            this.address=address;
+            this.phonenumber=phonenumber;
         }
     }
 
@@ -23,9 +27,13 @@ public class quiz {
         String name = sc.nextLine();
         System.out.println("Enter your age: ");
         int age = sc.nextInt();
+        System.out.println("Enter your address: ");
+        String address = sc.nextLine();
+        System.out.println("Enter your phonenumber: ");
+        int phonenumber =sc.nextInt();
         sc.nextLine(); // Consume the leftover newline
 
-        Player player = new Player(name, age);
+        Player player = new Player(name, age, address, phonenumber);
         System.out.println("Welcome, " + player.name + "!");
 
         // Ask if the player is ready
